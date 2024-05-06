@@ -1,12 +1,10 @@
 import './App.css';
-import UseRefEx3 from './Hooks/UseRef/UseRefEx3';
+import UseEffect from './Hooks/UseEffect';
 
 function App() {
 
   return(
-    <div className="container mt-5">
-      <UseRefEx3 />
-    </div>
+    <UseEffect />
   )
 }
 
