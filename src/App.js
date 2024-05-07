@@ -1,10 +1,12 @@
 import './App.css';
-import UseEffect from './Hooks/UseEffect';
+import UseMemo from './Hooks/useMemo/UseMemo';
 
 function App() {
 
   return(
-    <UseEffect />
+    <div className='container-md'>
+      <UseMemo />
+    </div>
   )
 }
 
