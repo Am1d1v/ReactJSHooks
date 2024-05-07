@@ -1,11 +1,11 @@
 import './App.css';
-import UseMemo from './Hooks/useMemo/UseMemo';
+import UseCallback from './Hooks/useCallback/UseCallback';
 
 function App() {
 
   return(
     <div className='container-md'>
-      <UseMemo />
+      <UseCallback />
     </div>
   )
 }
