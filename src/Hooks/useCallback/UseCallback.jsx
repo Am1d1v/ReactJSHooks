@@ -1,22 +1,24 @@
-import {useState, useCallback} from 'react'
+import React, {useState, useCallback} from 'react'
 
 function UseCallback() {
 
     const [tasks, setTasks] = useState([]);
 
-    const addTask = () => {
+    const addTask = useCallback(() => {
         setTasks(prev => [...prev, 'New Task, ']);
-    };
+    }, [setTasks]);
 
     return (
       <div>
         <Button addTask={addTask}/>
-        <h3>{tasks}</h3>
+        <h3>{tasks.map((task, index) => {
+           return <p key={index}>{task}</p>
+        })}</h3>
       </div>
     )
 }
 
-const Button = ({addTask}) => {
+const Button = React.memo(({addTask}) => {
     console.log('Button rendered');
 
     return (
@@ -24,6 +26,6 @@ const Button = ({addTask}) => {
             <button className='btn btn-primary' onClick={addTask}>Add Task</button>
         </div>
     )
-}
+});
 
 export default UseCallback
