@@ -1,14 +1,14 @@
-import {useState} from 'react'
+import useLocalStorage from "./useLocalStorage";
 
 function UseLocalStorage() {
 
-    const [task, setTast] = useState('');
+    const [task, setTast] = useLocalStorage('task', '');
 
     return (
       <form className='w-25'>
         <div className="mb-3">
             <label className="form-label">Task</label>
-            <input type="text" value={task} onChange={(e) => setTast(e.target.value)} />
+            <input className='w-50' type="text" value={task} onChange={(e) => setTast(e.target.value)} />
         </div>
       </form>
     )
