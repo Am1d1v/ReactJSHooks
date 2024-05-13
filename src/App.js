@@ -1,11 +1,11 @@
 import './App.css';
-import CustomHookEx1 from './Hooks/CustomHooks/CustomHookExample1/CustomHookEx1';
+import UseLocalStorage from './Hooks/CustomHooks/CustomHook-useLocalStorage/UseLocalStorage';
 
 function App() {
 
   return(
     <div className='container-md'>
-      <CustomHookEx1 />
+      <UseLocalStorage />
     </div>
   )
 }
