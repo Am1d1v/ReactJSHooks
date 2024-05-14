@@ -1,11 +1,11 @@
 import './App.css';
-import UseLocalStorage from './Hooks/CustomHooks/CustomHook-useLocalStorage/LocalStorage';
+import UseContext from './Hooks/useContext/UseContext';
 
 function App() {
 
   return(
     <div className='container-md'>
-      <UseLocalStorage />
+      <UseContext />
     </div>
   )
 }
