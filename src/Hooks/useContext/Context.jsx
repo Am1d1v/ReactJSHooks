@@ -18,4 +18,17 @@ export const Context = (props) => {
 
   // Remove book from the books collection
   const removeBook = (id) => setBooks(bookCollection.filter(book => book.id !== id));
+
+  // Context Value
+  const value = {
+    books,
+    addBook,
+    removeBook
+  }
+
+  return (
+    <CustomContext.Provider value={value}>
+      {props.children}
+    </CustomContext.Provider>
+  )
 } 
