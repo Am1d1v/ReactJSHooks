@@ -7,7 +7,7 @@ function Books() {
     const {books = []} = useContext(CustomContext);
 
     return (
-        books.map(book => <Book id={book.id} title={book.title}/>)
+        books.map((book, index) => <Book {...book} key={index}/>)
     )
 }
 
