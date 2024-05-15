@@ -1,28 +1,61 @@
 import './App.css';
-import { useState, useLayoutEffect, useEffect } from 'react';
+import { useReducer } from 'react';
 
 function App() {
 
-  const [value, setValue] = useState(0);
+  // Set range from 0 to 255
+  const limitRGB = (num) => (num < 0 ? 0 : num > 255 ? 255 : num);
+  const step = 51;
 
-  // useEffect render
-  /* useEffect(() => {
-    if(value === 0){
-      setValue(10 + Math.random() * 1000);
+  const reducer = (state, action) => {
+    switch(action.type){
+      case "INCREASE_RED":
+        return{
+          ...state,
+          red: limitRGB(state.red + step)
+        }
+      case "INCREASE_GREEN":
+        return{
+          ...state,
+          green: limitRGB(state.green + step)
+        }
+      case "INCREASE_BLUE":
+        return{
+          ...state,
+          blue: limitRGB(state.blue + step)
+        }
+      case "DECREASE_RED":
+        return{
+          ...state,
+          red: limitRGB(state.red - step)
+        }
+      case "DECREASE_GREEN":
+        return{
+          ...state,
+          green: limitRGB(state.green - step)
+        }
+      case "DECREASE_BLUE":
+        return{
+          ...state,
+          blue: limitRGB(state.blue - step)
+        }
     }
-  }, [value]);
-  console.log('Render', value); */
+  }
 
-  // useLayoutEffect render
-  useLayoutEffect(() => {
-    if(value === 0){
-      setValue(10 + Math.random() * 1000);
-    }
-  }, [value]);
-  console.log('Render', value);
+  const [{red,green,blue}, dispatch] = useReducer(reducer, {red: 0, green: 0, blue: 0});
 
   return(
-    <button onClick={() => setValue(0)}>Value: {value.toFixed(0)}</button>
+    <div>
+      <h1 style={{color: `rgb(${red}, ${green}, ${blue})`}}>COLOR TEXT</h1>
+
+      <div>
+        <span>R</span>
+        <button onClick={() => dispatch({type: "INCREASE_RED"})}>+</button>
+        <button onClick={() => dispatch({type: "DECREASE_RED"})}>-</button>
+      </div>
+
+
+    </div>
   )
 }
 
