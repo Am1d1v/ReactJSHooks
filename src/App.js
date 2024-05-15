@@ -5,15 +5,24 @@ function App() {
 
   const [value, setValue] = useState(0);
 
-  useEffect(() => {
+  // useEffect render
+  /* useEffect(() => {
     if(value === 0){
-      setValue(10 + Math.random() * 100);
+      setValue(10 + Math.random() * 1000);
+    }
+  }, [value]);
+  console.log('Render', value); */
+
+  // useLayoutEffect render
+  useLayoutEffect(() => {
+    if(value === 0){
+      setValue(10 + Math.random() * 1000);
     }
   }, [value]);
   console.log('Render', value);
 
   return(
-    <button onClick={() => setValue(0)}>Change Value</button>
+    <button onClick={() => setValue(0)}>Value: {value.toFixed(0)}</button>
   )
 }
 
