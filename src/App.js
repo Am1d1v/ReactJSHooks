@@ -54,6 +54,17 @@ function App() {
         <button onClick={() => dispatch({type: "DECREASE_RED"})}>-</button>
       </div>
 
+      <div>
+        <span>G</span>
+        <button onClick={() => dispatch({type: "INCREASE_GREEN"})}>+</button>
+        <button onClick={() => dispatch({type: "DECREASE_GREEN"})}>-</button>
+      </div>
+
+      <div>
+        <span>B</span>
+        <button onClick={() => dispatch({type: "INCREASE_BLUE"})}>+</button>
+        <button onClick={() => dispatch({type: "DECREASE_BLUE"})}>-</button>
+      </div>
 
     </div>
   )
