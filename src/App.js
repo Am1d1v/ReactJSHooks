@@ -1,10 +1,11 @@
 import './App.css';
 import { useState } from 'react';
 import { usePrevious } from './Hooks/CustomHooks/CustomHook-usePrevious/useprevious';
+import { useSaveLocalStorage } from './Hooks/CustomHooks/CustomHook-useSaveLocalStorage/useSaveLocalStorage';
 
 function App() {
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useSaveLocalStorage(0, 'count');
 
   const prevCount = usePrevious(count);
   
